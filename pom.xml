@@ -19,20 +19,27 @@ specific language governing permissions and limitations
 under the License.
 -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>org.apache.maven.archetypes</groupId>
-    <artifactId>maven-archetype-bundles</artifactId>
-    <version>1.4</version>
-  </parent>
-
-  <artifactId>maven-archetype-webapp</artifactId>
+  <groupId>br.cefetmg</groupId>
+  <artifactId>ascanio-webapp</artifactId>
+  <version>v1.0.0</version>
   <packaging>maven-archetype</packaging>
 
-  <name>Maven Webapp Archetype</name>
+  <name>Ascanio Webapp Archetype</name>
   <description>
-    An archetype which contains a sample Maven Webapp project.
+    An archetype built by professor Ascanio which contains a basic Java web application structure.
   </description>
+  <build>
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.archetype</groupId>
+        <artifactId>archetype-packaging</artifactId>
+        <version>3.4.1</version>
+      </extension>
+    </extensions>
+  </build>
 </project>
