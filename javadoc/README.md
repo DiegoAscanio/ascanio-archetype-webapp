@@ -1,0 +1,1 @@
+This is a maven customized webapp archetype to use in prof. Ascanio classes.

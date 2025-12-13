@@ -24,9 +24,9 @@ under the License.
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>br.cefetmg</groupId>
-  <artifactId>ascanio-webapp</artifactId>
-  <version>v1.0.0</version>
+  <groupId>io.github.diegoascanio</groupId>
+  <artifactId>webapp</artifactId>
+  <version>1.0.0</version>
   <packaging>maven-archetype</packaging>
 
   <name>Ascanio Webapp Archetype</name>
@@ -42,4 +42,57 @@ under the License.
       </extension>
     </extensions>
   </build>
+  <profiles>
+    <profile>
+      <id>release</id>
+
+      <build>
+        <plugins>
+
+          <!-- -sources.jar -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>3.4.0</version>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <goals>
+                  <goal>jar-no-fork</goal>
+                </goals>
+                <configuration>
+                  <includePom>true</includePom>
+                  <includeResources>true</includeResources>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+
+          <!-- -javadoc.jar (placeholder) -->
+          <!-- Create a folder "javadoc/" at project root with at least one file, e.g. javadoc/README.md -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.4.2</version>
+            <executions>
+              <execution>
+                <id>attach-javadoc-jar</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+                <configuration>
+                  <classifier>javadoc</classifier>
+                  <classesDirectory>${project.basedir}/javadoc</classesDirectory>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+
+          <!-- (Later, you’ll also add signing + central publishing plugins in this same profile) -->
+
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>

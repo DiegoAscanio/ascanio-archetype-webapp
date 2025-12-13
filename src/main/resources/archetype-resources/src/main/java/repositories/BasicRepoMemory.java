@@ -9,6 +9,11 @@ import models.BasicModel;
 public class BasicRepoMemory implements BasicRepo {
 	private final List<BasicModel> store = new ArrayList<>();
 
+	public BasicRepoMemory() {
+		// Initial dummy data
+		store.add(new BasicModel("host1", "user1"));		
+	}
+
 	@Override
 	public BasicModel create(BasicModel model) {
 		deleteByHostname(model.getHostname());
