@@ -33,6 +33,43 @@ under the License.
   <description>
     An archetype built by professor Ascanio which contains a basic Java web application structure.
   </description>
+
+  <!-- ===== BEGIN REQUIRED METADATA FOR MAVEN CENTRAL ===== -->
+
+  <!-- Project homepage (usually your GitHub repo URL) -->
+  <url>https://github.com/DiegoAscanio/ascanio-archetype-webapp</url>
+
+  <!-- License information (must match the license you actually use in the repo) -->
+  <licenses>
+    <license>
+      <name>The Apache License, Version 2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <!-- Developer / maintainer info -->
+  <developers>
+    <developer>
+      <id>diegoascanio</id>
+      <name>Diego Ascânio Santos</name>
+      <!-- optional but nice to have -->
+      <email>ascanio@cefetmg.br</email>
+      <organization>CEFET-MG</organization>
+      <organizationUrl>https://www.cefetmg.br/</organizationUrl>
+    </developer>
+  </developers>
+
+  <!-- Source Control Management (SCM) coordinates -->
+  <scm>
+    <url>https://github.com/DiegoAscanio/ascanio-archetype-webapp</url>
+    <connection>scm:git:https://github.com/DiegoAscanio/ascanio-archetype-webapp.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/DiegoAscanio/ascanio-archetype-webapp.git</developerConnection>
+    <tag>HEAD</tag>
+  </scm>
+
+  <!-- ===== END REQUIRED METADATA FOR MAVEN CENTRAL ===== -->
+
   <build>
     <extensions>
       <extension>
@@ -42,6 +79,7 @@ under the License.
       </extension>
     </extensions>
   </build>
+
   <profiles>
     <profile>
       <id>release</id>
@@ -69,7 +107,8 @@ under the License.
           </plugin>
 
           <!-- -javadoc.jar (placeholder) -->
-          <!-- Create a folder "javadoc/" at project root with at least one file, e.g. javadoc/README.md -->
+          <!-- Create a folder "javadoc/" at project root with at least one file, e.g.
+          javadoc/README.md -->
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-jar-plugin</artifactId>
@@ -90,7 +129,33 @@ under the License.
           </plugin>
 
           <!-- (Later, you’ll also add signing + central publishing plugins in this same profile) -->
+          <!-- PGP signatures (.asc) required by Central -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>3.2.7</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
 
+          <!-- Upload + publish to Sonatype Central Portal -->
+          <plugin>
+            <groupId>org.sonatype.central</groupId>
+            <artifactId>central-publishing-maven-plugin</artifactId>
+            <version>0.9.0</version>
+            <extensions>true</extensions>
+            <configuration>
+              <publishingServerId>central</publishingServerId>
+              <autoPublish>true</autoPublish>
+            </configuration>
+          </plugin>
         </plugins>
       </build>
     </profile>
