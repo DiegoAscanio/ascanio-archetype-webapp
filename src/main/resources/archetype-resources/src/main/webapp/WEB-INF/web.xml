@@ -14,4 +14,8 @@
     <servlet-name>BasicController</servlet-name>
     <url-pattern>/basic</url-pattern>
   </servlet-mapping>
+
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
 </web-app>

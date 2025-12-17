@@ -26,7 +26,7 @@ under the License.
 
   <groupId>io.github.diegoascanio</groupId>
   <artifactId>webapp-cefetmg</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.4</version>
   <packaging>maven-archetype</packaging>
 
   <name>Ascanio Webapp Archetype</name>
