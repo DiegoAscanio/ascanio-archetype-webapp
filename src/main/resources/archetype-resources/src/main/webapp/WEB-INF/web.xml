@@ -12,7 +12,7 @@
 
   <servlet-mapping>
     <servlet-name>BasicController</servlet-name>
-    <url-pattern>/basic</url-pattern>
+    <url-pattern>/basic/api</url-pattern>
   </servlet-mapping>
 
   <welcome-file-list>
